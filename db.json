@@ -1,10 +1,8 @@
 {
   "posts": [
     {
-      "title": "Lorem ipsum dolor sit amet",
-      "author": "Patrice",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates non, odit, sequi sit pariatur iusto modi magni dolorem, cupiditate corrupti! Recusandae quaerat vitae fugiat mollitia blanditiis, temporibus eum! Ipsum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates non, odit, sequi sit pariatur iusto modi magni dolorem, cupiditate corrupti! Recusandae quaerat vitae fugiat mollitia blanditiis, temporibus eum! Ipsum?",
-      "likes": 27,
+      "pseudo": "user42",
+      "likes": 23,
       "id": "1"
     },
     {
@@ -23,24 +21,17 @@
     },
     {
       "title": "Article",
-      "content": "Salutation !",
       "author": "user42",
-      "likes": 0,
+      "content": "Test",
+      "likes": 4,
       "id": "sEvTVRi"
     },
     {
       "title": "Article 2",
+      "author": "user42",
       "content": "coucou !!!",
-      "author": "user42",
-      "likes": 0,
+      "likes": 1,
       "id": "UrXQ_3x"
-    },
-    {
-      "title": "article 3",
-      "content": "Aurevoir !!!!!!!!!",
-      "author": "user42",
-      "likes": 0,
-      "id": "GrPpEf-"
     }
   ],
   "users": [

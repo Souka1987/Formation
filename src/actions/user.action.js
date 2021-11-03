@@ -2,6 +2,7 @@ import axios from "axios";
 
 // Communique avec la base de données
 export const GET_USER = "GET_USER";
+export const ADD_USER_LIKE = "ADD_USER_LIKE";
 
 export const getUser = () => {
   return (dispatch) => {
@@ -17,5 +18,22 @@ export const getUser = () => {
         //   Montrer si il y a une erreur
         .catch((err) => console.log(err))
     );
+  };
+};
+
+// LIKE
+export const addUserLike = (data) => {
+  return (dispatch) => {
+    return axios({
+      method: "put",
+      url: `http://localhost:3000/posts/${data.id}`,
+      data: { ...data },
+    })
+      .then((res) => {
+        /* Envoyer la data et casser le tableau pour avoir 
+        chaque éléments du tableau séparement { ..data } */
+        dispatch({ type: ADD_USER_LIKE, payload: { ...data } });
+      })
+      .catch((err) => console.log(err));
   };
 };
