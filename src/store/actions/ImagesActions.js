@@ -4,7 +4,7 @@
 import axios from "axios";
 
 /*
- * Import types { ... }
+ * Import types actions { ... }
  * ******************** */
 import { GET_IMAGES_DATA } from "./ActionTypes";
 
