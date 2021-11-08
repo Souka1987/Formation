@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+// Import du style
+import "./assets/scss/index.scss";
 
 import reportWebVitals from './tests/reportWebVitals';
 
 import { store } from "./store";
-
+// Actions du STORE
 import { getImages } from './store/actions/ImagesActions'
 
 store.dispatch(getImages())

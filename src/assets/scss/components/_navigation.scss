@@ -1,23 +1,15 @@
 .nav {
-    margin: 26px 0;
-    display: flex;
-  
-    a {
-      margin: 10px;
-      padding: 10px;
-      position: relative;
-    }
-    .link {
-      &::after {
-        content: "";
-        width: 85%;
-        height: 5px;
-        background: $color-1;
-        position: absolute;
-        bottom: 1px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    }
+  margin: 26px 0;
+  display: flex;
+  font-family: $font-1;
+
+  a {
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+    text-decoration: none;
+    color: black;
+    // font-family: $font-1;
   }
-  
+
+}

@@ -7,17 +7,16 @@ const Articles = () => {
   // UseSelector permet d'aller chercher le STORE de l'application
   const data = useSelector((state) => state.images.data);
   return (
-    <div>
-      {/* Import du component Navigation */}
+    <div className="article">
       <Navigation />
       <h1>Articles</h1>
       {/* On va chercher les données */}
-      {data.map((img) => {
-        return (
-          // Renvoyer les images avec leur identifiant unique
-          <Cards img={img} key={img.id} />
-        );
-      })}
+      {/* {data.map((img) => {
+        return ( */}
+          {/* // Retourner les images avec leur identifiant unique */}
+          <Cards data={data}/>
+        {/* );
+      })} */}
     </div>
   );
 };

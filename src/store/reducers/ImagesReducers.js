@@ -15,11 +15,19 @@ const initialState = {
  * ******** */
 // Exporter la fonction ImagesReducer
 export function ImagesReducer(state = initialState, action) {
+  // Importer le type d'action
   switch (action.type) {
     //   GET_IMAGES_DATA issu de fichier ActionsTypes
     case Actions.GET_IMAGES_DATA:
-      return { data: action.payload };
+      return {
+        data: action.payload
+      };
+    case Actions.ADD_IMAGES_DATA:
+      return {
+        data: action.payload
+      };
     default:
+      // retourner l'état 
       return state;
   }
 }

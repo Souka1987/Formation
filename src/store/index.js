@@ -1,6 +1,6 @@
-/* REDUCERS fonctions qui prennent une  state  et une   action  en arguments et 
- retournent le  state, ils déterminent 
-la construction progressive de l'appli. */
+/* Le reducers permet de gérer la mise à jour des données. 
+Le reducers et les actions sont complémentaires.*/
+
 
 
 /*

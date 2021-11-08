@@ -6,23 +6,37 @@ import axios from "axios";
 /*
  * Import types actions { ... }
  * ******************** */
-import { GET_IMAGES_DATA } from "./ActionTypes";
+import { GET_IMAGES_DATA, ADD_IMAGES_DATA } from "./ActionTypes";
 
 /*
  * Actions
  * ******* */
 
-// Get News
+// Get Images
 export const getImages = () => {
   return (dispatch) => {
     return axios
     //   Demander à axios d'aller chercher dans DB
     .get("http://localhost:3003/images")
-    // Et nous donner les datas
+    // Et nous renvoyer les datas
     .then((res) => {
         console.log('res data', res.data)
         dispatch({ type: GET_IMAGES_DATA, payload: res.data})
     })
+      .catch((err) => console.log(err));
+  };
+};
+
+// Add Images
+export const addImages = (data) => {
+  console.log('addImages', data)
+  return (dispatch) => {
+    return axios
+      .post("http://localhost:3003/images", data)
+      .then((res) => {
+        console.log("postImages", res.data);
+        dispatch({ type: ADD_IMAGES_DATA, payload: res.data.message });
+      })
       .catch((err) => console.log(err));
   };
 };
