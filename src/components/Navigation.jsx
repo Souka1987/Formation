@@ -8,6 +8,7 @@ import Tab from "@mui/material/Tab";
 import HomeIcon from "@mui/icons-material/Home";
 import ArticleIcon from "@mui/icons-material/Article";
 import PersonPinIcon from "@mui/icons-material/PersonPin";
+import CloudIcon from '@mui/icons-material/Cloud';
 
 // ICONS
 // import Icon from "@mui/material/Icon";
@@ -30,6 +31,10 @@ const Navigation = () => {
 
         <Link to="/articles">
           <Tab icon={<ArticleIcon />} label="ARTICLE" />
+        </Link>
+
+        <Link to="/meteo">
+          <Tab icon={<CloudIcon />} label="WEATHER" />
         </Link>
       </Tabs>
     </div>

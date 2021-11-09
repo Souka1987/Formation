@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Articles from './pages/Articles';
 import NotFound from './pages/NotFound'
+import Weather from './pages/Weather';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/" exact element={<Home/>}/>
         <Route path="/a-propos" exact element={<About/>}/>
         <Route path="/articles" exact element={<Articles/>}/>
+        <Route path="/meteo" exact element={<Weather/>}/>
         <Route element={<NotFound/>}/>
       </Routes>
       </BrowserRouter>

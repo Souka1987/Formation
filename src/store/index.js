@@ -22,12 +22,16 @@ import thunk from "redux-thunk";
 import {
     ImagesReducer
 } from "./reducers/ImagesReducers";
+import {
+    UserReducer
+} from "./reducers/UserReducers";
 
 /*
  * All (Root) Reducers
  * ******************* */
 const rootReducer = combineReducers({
     images: ImagesReducer,
+    user: UserReducer
 });
 
 /*
