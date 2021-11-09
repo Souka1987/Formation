@@ -14,28 +14,30 @@ import Grid from "@mui/material/Grid";
 // Les actions du STORE sont contenus dans les PROPS
 const Cards = (props) => {
   const [spacing] = React.useState(2);
-
   return (
     <div className="card">
-      <Grid sx={{ flexGrow: 1 }} container spacing={2}>
-        <Grid item xs={12}>
-          <Grid container justifyContent="center" spacing={spacing}>
-            {[0, 1, 2].map((value) => (
-
-              <Grid key={value.id} item>
-                <Box
-                  justifyContent="center"
-                  spacing={spacing}
-                  sx={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(1, 1fr)",
-                  }}
-                >
+      {/* <Box
+        // sx={{
+        //   display: "flex",
+        //   flexDirection: "row",
+        //   flexWrap: "wrap",
+        // }}
+      > */}
+        <Grid sx={{ flexGrow: 2 }}>
+          <Grid item>
+            <Grid
+              container
+              columns={{ xs: 4, sm: 8, md: 12 }}
+              justifyContent="space-arround"
+              spacing={{ xs: 2, md: 3 }}
+            >
+              {[0, 0.5, 1, 2, 3, 4, 8, 12].map((value) => (
+                <Grid key={value} item xs={6}>
                   {props.data.length > 0 &&
                     props.data.map((img) => {
-                      console.log("test", img);
+                      // console.log("test", img);
                       return (
-                        <Card sx={{ maxWidth: 340 }}>
+                        <Card>
                           <CardMedia
                             component="img"
                             height="230"
@@ -58,9 +60,9 @@ const Cards = (props) => {
                             </Typography>
                           </CardContent>
                           <CardActions>
-                            <Stack spacing={2} direction="row">
+                            <Stack spacing={2}>
                               <Button variant="contained" size="small">
-                                Valider
+                                Go
                               </Button>
                               {/* <Button variant="contained" color="error" size="small">Supprimer</Button> */}
                             </Stack>
@@ -68,13 +70,12 @@ const Cards = (props) => {
                         </Card>
                       );
                     })}
-                </Box>
-              </Grid>
-              
-            ))}
+                </Grid>
+              ))}
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      {/* </Box> */}
     </div>
   );
 };
