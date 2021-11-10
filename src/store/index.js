@@ -1,8 +1,6 @@
 /* Le reducers permet de gérer la mise à jour des données. 
 Le reducers et les actions sont complémentaires.*/
 
-
-
 /*
  * React
  * ***** */

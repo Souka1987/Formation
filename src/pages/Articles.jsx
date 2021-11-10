@@ -3,9 +3,23 @@ import Cards from "../components/Cards";
 import Navigation from "../components/Navigation";
 import PostForm from "../components/PostForm";
 
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import { useEffect } from "react";
+
+import { store } from "../store";
+import { getImages } from "../store/actions/ImagesActions";
+import { getPosts } from "../store/actions/PostActions";
+
 const Articles = () => {
   // UseSelector permet d'aller chercher le STORE de l'application
   const data = useSelector((state) => state.images.data);
+
+  useEffect(() => {
+    store.dispatch(getImages());
+    store.dispatch(getPosts());
+  }, []);
+
   return (
     <div className="article">
       <Navigation />
@@ -15,8 +29,27 @@ const Articles = () => {
       {/* On va chercher les données */}
       {/* {data.map((img) => {
         return ( */}
-      {/* // Retourner les images avec leur identifiant unique */}
-      <Cards data={data} />
+      <div className="card">
+        {/* Array à 1 pour éviter de répéter le même tableau*/}
+        {[0].map((id) => (
+          // J'ai demandé l'ID unique de chaque images
+          <Grid key={id}>
+            <Box
+              sx={{ width: 1 }}
+              display="grid"
+              // Colonne 4
+              gridTemplateColumns="repeat(3, 1fr)"
+              gap={4}
+            >
+              {data.length > 0 &&
+                data.map((data) => {
+                  return <Cards data={data} key={data.id} />;
+                })}
+            </Box>
+          </Grid>
+        ))}
+      </div>
+
       {/* );
       })} */}
     </div>

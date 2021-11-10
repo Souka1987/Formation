@@ -1,23 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { Provider } from 'react-redux';
 // Import du style
 import "./assets/scss/index.scss";
+
+// Redux
+// import { createStore } from "redux";
+import { Provider } from 'react-redux';
+
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme'
 
 import reportWebVitals from './tests/reportWebVitals';
 
 import { store } from "./store";
 // Actions du STORE
-import { getImages } from './store/actions/ImagesActions'
+// import { getImages } from './store/actions/ImagesActions'
+import { getPosts } from './store/actions/PostActions'
 
-store.dispatch(getImages())
+// Dès que le store est monté on envoie les actions
+store.dispatch(getPosts());
+// store.dispatch(getImages())
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </ThemeProvider>
   </Provider>,
   document.getElementById('root')
 );

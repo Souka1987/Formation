@@ -10,18 +10,17 @@ import ArticleIcon from "@mui/icons-material/Article";
 import PersonPinIcon from "@mui/icons-material/PersonPin";
 import CloudIcon from '@mui/icons-material/Cloud';
 
-// ICONS
-// import Icon from "@mui/material/Icon";
 
 const Navigation = () => {
-  // const [value, setValue] = React.useState(0);
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
+  const [value, setValue] = React.useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <div className="nav">
-      <Tabs>
-        <Link to="/">
+      <Tabs value={value} onChange={handleChange}>
+        <Link to="/"> 
           <Tab icon={<HomeIcon />} label="ACCEUIL" />
         </Link>
 

@@ -6,7 +6,7 @@ import axios from "axios";
 /*
  * Import types actions { ... }
  * ******************** */
-import { GET_IMAGES_DATA, ADD_IMAGES_DATA } from "./ActionTypes";
+import { GET_IMAGES_DATA } from "./ActionTypes";
 
 /*
  * Actions
@@ -27,17 +27,3 @@ export const getImages = () => {
   };
 };
 
-// Add Images
-export const addImages = (data) => {
-  console.log('addImages', data)
-  return (dispatch) => {
-    return axios
-    // Ordre décroissant
-      .post("http://localhost:3003/images?_sort=id&_order=desc", data)
-      .then((res) => {
-        console.log("postImages", res.data);
-        dispatch({ type: ADD_IMAGES_DATA, payload: res.data.message });
-      })
-      .catch((err) => console.log(err));
-  };
-};

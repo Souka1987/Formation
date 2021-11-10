@@ -1,6 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addImages, getImages } from "../store/actions/ImagesActions";
+import { useDispatch } from "react-redux";
+import { addPost, getPosts } from "../store/actions/PostActions";
+
+// MUI
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
+
 
 const PostForm = () => {
   // Titre
@@ -10,17 +17,17 @@ const PostForm = () => {
   // Content
   const [content, setContent] = useState("");
   // User
-  //   const user = useSelector((state) => state.UserReducer);
+  // const user = useSelector((state) => state.UserReducer);
   // Dispatcher
   const dispatch = useDispatch();
 
-  console.log(content);
-  //   console.log(user);
-  //   console.log(getImages);
+  // console.log(content);
+  // console.log(user);
+  // console.log(addPost);
 
   const handleForm = async (e) => {
     e.preventDefault();
-    if (content) {
+    if (title && content) {
       const data = {
         title,
         image,
@@ -29,28 +36,52 @@ const PostForm = () => {
       };
 
       // Déclencher l'action et passer en paramètre les datas
-      await dispatch(addImages(data));
-      //   setTitle("");
+      await dispatch(addPost(data));
+      setTitle("");
+      setImage("");
       setContent("");
+
       // Obtenir les posts
-      dispatch(getImages());
+      dispatch(getPosts());
     }
   };
+
+  // MUI
+  const Input = styled("input")({
+    display: "none",
+  });
 
   return (
     <div className="form-container">
       <form onSubmit={(e) => handleForm(e)}>
-        {/* 
-      <img
-          onClick={() => setImage()}
-        //   src="./icons/edit.svg"
-          alt="edit"
-        />{" "} */}
-
+        {/* Image */}
+        {/* <img onClick={() => setImage()} value={image} src="" alt="" /> */}
+        {/*  */}
+        <Stack direction="row" alignItems="center" spacing={2}>
+          <label htmlFor="contained-button-file">
+            <Input
+              accept="image/*"
+              id="contained-button-file"
+              multiple
+              type="file"
+            />
+            <Button variant="contained" component="span">
+              télécharger un fichier
+            </Button>
+          </label>
+          <label htmlFor="icon-button-file">
+            <Input accept="image/*" id="icon-button-file" type="file" />
+            <IconButton
+              color="primary"
+              aria-label="upload picture"
+              component="span"
+            ></IconButton>
+          </label>
+        </Stack>
         <input
           type="text"
           placeholder="Titre du poste"
-          //   value={title}
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <textarea
