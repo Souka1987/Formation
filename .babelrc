@@ -1,0 +1,11 @@
+/* Ici, nous installons @babel/core qui est le transpileur de base. 
+Ensuite, nous avons babel-loader qui est un chargeur 
+webpack qui aidera webpack à utiliser babel transpiler. */
+
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties"
+  ]
+}

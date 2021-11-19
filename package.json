@@ -1,25 +1,21 @@
 {
-  "name": "snk-blog",
+  "name": "arch-base",
   "version": "0.1.0",
   "private": true,
-  "author": {
-    "name": "Souka",
-    "email": "soukainataa1987@gmail.com",
-    "url": "https://404notfound.com"
-  },
-  "description": "Test Electron",
-  "homepage": "./",
-  "email": "soukainataa1987@gmail.com",
-  "main": "public/electron.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.24.0",
+    "colorette": "^2.0.16",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^6.0.1",
     "react-scripts": "4.0.3",
+    "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -27,32 +23,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "e:start": "concurrently -k \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electronmon .\"",
-    "e:dev": "concurrently -k \"BROWSER=none npm start\" \"npm:electron\"",
-    "electron": "wait-on tcp:3000 && electron .",
-    "e:mac": "yarn build && electron-builder -m -c.extraMetadata.main=build/electron.js",
-    "e:win": "yarn build && electron-builder -w -c.extraMetadata.main=build/electron.js",
-    "e:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/electron.js"
-  },
-  "build": {
-    "appId": "react.tuto.myapp",
-    "productName": "My Electron React App",
-    "files": [
-      "build/**/*",
-      "node_modules/**/*"
-    ],
-    "directories": {
-      "buildResources": "public"
-    },
-    "mac": {
-      "target": "dmg"
-    },
-    "win": {
-      "target": "nsis"
-    },
-    "linux": {
-      "target": "deb"
-    }
+    "server": "json-server --w src/assets/db.json --port 3003",
+    "serve": "webpack serve --mode development",
+    "w-build": "webpack --mode production",
+    "watch": "webpack --watch --config webpack.config.js"
   },
   "eslintConfig": {
     "extends": [
@@ -62,19 +36,40 @@
   },
   "browserslist": {
     "production": [
-      "last 1 electron version"
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ],
     "development": [
-      "last 1 electron version"
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   },
   "devDependencies": {
-    "concurrently": "^6.3.0",
-    "cross-env": "^7.0.3",
-    "electron": "^15.3.0",
-    "electron-builder": "^22.13.1",
-    "electron-is-dev": "^2.0.0",
-    "electronmon": "^2.0.2",
-    "wait-on": "^6.0.0"
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@hot-loader/react-dom": "^17.0.1",
+    "@svgr/webpack": "^5.5.0",
+    "babel": "^6.23.0",
+    "babel-loader": "8.1.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^6.5.1",
+    "file-loader": "^6.2.0",
+    "html-loader": "^3.0.1",
+    "html-webpack-plugin": "^5.0.0-alpha.10",
+    "mini-css-extract-plugin": "^2.4.4",
+    "node-sass": "^6.0.1",
+    "react-hot-loader": "^4.13.0",
+    "react-router-dom": "^6.0.2",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "serve": "^13.0.2",
+    "style-loader": "^3.3.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.4.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "3.11.1"
   }
 }
