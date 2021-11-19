@@ -1,0 +1,80 @@
+{
+  "name": "snk-blog",
+  "version": "0.1.0",
+  "private": true,
+  "author": {
+    "name": "Souka",
+    "email": "soukainataa1987@gmail.com",
+    "url": "https://404notfound.com"
+  },
+  "description": "Test Electron",
+  "homepage": "./",
+  "email": "soukainataa1987@gmail.com",
+  "main": "public/electron.js",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.0.1",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "e:start": "concurrently -k \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electronmon .\"",
+    "e:dev": "concurrently -k \"BROWSER=none npm start\" \"npm:electron\"",
+    "electron": "wait-on tcp:3000 && electron .",
+    "e:mac": "yarn build && electron-builder -m -c.extraMetadata.main=build/electron.js",
+    "e:win": "yarn build && electron-builder -w -c.extraMetadata.main=build/electron.js",
+    "e:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/electron.js"
+  },
+  "build": {
+    "appId": "react.tuto.myapp",
+    "productName": "My Electron React App",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "deb"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      "last 1 electron version"
+    ],
+    "development": [
+      "last 1 electron version"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "cross-env": "^7.0.3",
+    "electron": "^15.3.0",
+    "electron-builder": "^22.13.1",
+    "electron-is-dev": "^2.0.0",
+    "electronmon": "^2.0.2",
+    "wait-on": "^6.0.0"
+  }
+}

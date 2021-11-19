@@ -1,0 +1,55 @@
+.login {
+  height: calc(100vh - 50px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://2.bp.blogspot.com/-TyjQ7rOMDPs/XSRJPSm-MgI/AAAAAAAAAjQ/PjEcDcl4aB8Y7M7sNGaYDzab1PkU9c82gCKgBGAs/w0/attack-titan-attack-on-titan-uhdpaper.com-4K-107.jpg");
+  background-size: cover;
+}
+
+.loginTitle {
+  font-size: 50px;
+}
+
+.loginForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm > label {
+  margin: 10px 0;
+}
+
+.loginInput {
+  padding: 10px;
+  background-color: white;
+  border: none;
+}
+
+.loginButton {
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: lightcoral;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.loginRegisterButton{
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: teal;
+    cursor: pointer;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
