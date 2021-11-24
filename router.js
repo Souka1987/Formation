@@ -8,38 +8,58 @@ const router = express.Router();
 
 // Controllers
 const NewsController = require("./controllers/NewsController");
+const CountriesController = require("./controllers/CountriesController");
 
 /*
  * Routes
  * ****** */
 
-// Route News
-
-// Exemple de liens avec params avec le "?" + le "q" =>  https://search.brave.com/search?q=google&source=desktop
 router
+
+  /***
+   *
+   * News
+   *
+   */
+
   // Récupérer tous les articles
-  // http://localhost:5000/
-  // .get("/", NewsController.getAll)
-  /** */
-  //   Récupérer un article unique
-  // http://localhost:5000/news
-  // .get("/:id", NewsController.getId)
-  /** */
+  .get("/", NewsController.getAll)
+  //   Récupérer un article unique ID (chemin spécifié)
+  .get("/news", NewsController.getId)
   //   Créer un nouvel article
-  // http://localhost:5000/
-  .post("/", NewsController.create)
-  /** */
+  .post("/news", NewsController.create)
   //   Editer/Modifier
-  // http://localhost:5000/news/619cfacdcfab3190127a9020
-  // .put("/news/:id", NewsController.editOne)
-  /** */
+  .put("/news/:id", NewsController.editOne)
+  // Supprimer un article unique
+  .delete("/news/:id", NewsController.deleteOne)
   // Supprimer TOUS les articles
-  // http://localhost:5000/
-  // .delete("/", NewsController.deleteMany)
-  /** */
-  // Supprimer un article
-  // http://localhost:5000/news/619cfacdcfab3190127a9020
-  // .delete("/news/:id", NewsController.deleteOne);
+  .delete("/", NewsController.deleteMany)
+
+  // test router.route
+  // router.route('/article')
+  //   .get()
+  //   .post()
+  //   .put()
+  //   .delete()
+
+  /***
+   *
+   * Countries
+   *
+   */
+
+  // Récupérer tous les articles
+  .get("/", CountriesController.getAll)
+  //   Récupérer un article unique ID (chemin spécifié)
+  .get("/countries", CountriesController.getId)
+  //   Créer un nouvel article
+  .post("/countries", CountriesController.create)
+  //   Editer/Modifier
+  .put("/countries/:id", CountriesController.editOne)
+  // Supprimer un article unique
+  .delete("/countries/:id", CountriesController.deleteOne)
+  // Supprimer TOUS les articles
+  .delete("/", CountriesController.deleteMany);
 
 // On export le router
 module.exports = router;
