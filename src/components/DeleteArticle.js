@@ -1,9 +1,10 @@
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
 
-const DeleteArticle = ({ id }) => {
+const DeleteArticle = ({ articleId }) => {
   const handleDelete = () => {
-    axios.delete("http://localhost:3003/articles/" + id);
+    console.log("article delete");
+    // axios.delete(`http://localhost:5000/news/${articleId}`);
     window.location.reload();
   };
 
