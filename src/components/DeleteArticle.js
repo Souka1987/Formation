@@ -1,13 +1,14 @@
 import React from "react";
 // import axios from "axios";
 
-const DeleteArticle = ({ articleId }) => {
+const DeleteArticle = ({data}) => {
   const handleDelete = () => {
-    console.log("article delete");
-    // axios.delete(`http://localhost:5000/news/${articleId}`);
+    
+    // axios.delete(`http://localhost:5000/news/${news.id}`);
     window.location.reload();
   };
-
+  // console.log("articleDelete");
+  // console.log(data);
   return (
     <button
       onClick={() => {

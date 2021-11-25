@@ -11,6 +11,7 @@ import {
   ADD_NEWS_DATA,
   // EDIT_NEWS_DATA,
   DELETE_NEWS_DATA,
+  EDIT_NEWS_DATA,
 } from "./ActionTypes";
 
 /*
@@ -25,7 +26,10 @@ export const getNews = () => {
       .get("http://localhost:5000/")
       .then((res) => {
         console.log("getNews:", res.data);
-        dispatch({ type: GET_NEWS_DATA, payload: res.data.dbNews });
+        dispatch({
+          type: GET_NEWS_DATA,
+          payload: res.data.dbNews
+        });
       })
       .catch((err) => console.log(err));
   };
@@ -39,37 +43,42 @@ export const addNews = (data) => {
       .post("http://localhost:5000/news", data)
       .then((res) => {
         console.log("postNews", res.data);
-        dispatch({ type: ADD_NEWS_DATA, payload: res.data.message });
+        dispatch({
+          type: ADD_NEWS_DATA,
+          payload: res.data.message
+        });
       })
       .catch((err) => console.log(err));
   };
 };
 
 // Edit News [Method PUT router.js]
-// export const editNews = (id) => {
-//   console.log("editNews", id);
+// export const editPost = (data) => {
 //   return (dispatch) => {
-//     return axios
-//       .put(`http://localhost:5000/news/` + id)
-//       .then((res) => {
-//         console.log("editNews", res.data);
-//         dispatch({ type: EDIT_NEWS_DATA, payload: res.data.message });
+//     return axios({
+//       method: "put",
+//       url: `http://localhost:5000/news/${data.id}`,
+//       data: { ...data },
+//     })
+//       .then(() => {
+//         /* Envoyer la data et casser le tableau pour avoir 
+//         chaque éléments du tableau séparement { ..data } */
+//         dispatch({ type: EDIT_NEWS_DATA, payload: { ...data } });
 //       })
 //       .catch((err) => console.log(err));
 //   };
 // };
 
 // Delete One News [Method DELETE router.js]
-export const deleteNews = ({ id }) => {
+export const deleteNews = (data) => {
   return (dispatch) => {
-    // console.log("article delete");
     return axios({
       method: "delete",
-      url: `http://localhost:5000/news/${id}`,
+      url: `http://localhost:5000/news/${data.id}`,
     })
       .then((res) => {
-        // On aura besion de l'id de l'article pour le supprimer
-        dispatch({ type: DELETE_NEWS_DATA, payload: { id } });
+        // On aura besion de l'id du post pour le supprimer
+        dispatch({ type: DELETE_NEWS_DATA, payload: { data } });
       })
       .catch((err) => console.log(err));
   };
@@ -83,7 +92,9 @@ export const deleteAllNews = (data) => {
       .delete("http://localhost:5000/", data)
       .then((res) => {
         console.log("deleteAllNews", res.data);
-        dispatch({ type: DELETE_NEWS_DATA });
+        dispatch({
+          type: DELETE_NEWS_DATA
+        });
       })
       .catch((err) => console.log(err));
   };
