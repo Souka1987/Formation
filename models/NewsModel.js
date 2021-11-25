@@ -5,16 +5,17 @@
  *************************/
 
 // Import de mongoose
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require("mongoose"),
+  Schema = mongoose.Schema;
 
 const NewsSchema = new mongoose.Schema({
+
   title: String,
   author: String,
   content: String,
   createDate: {
     type: Date,
-    default: new Date().toDateString(),
+    default: Date.now(),
   },
 });
 

@@ -6,6 +6,7 @@ const express = require("express"),
   mongoose = require("mongoose"),
   bodyParser = require("body-parser"),
   app = express(),
+  cors = require("cors"),
   port = process.env.PORT || 5000;
 (morgan = require("morgan")),
   // env
@@ -20,6 +21,10 @@ mongoose
   })
   .then(() => console.log("Connecté à MongoDB"))
   .catch((err) => console.log(err));
+
+/* Cross-origin resource sharing (CORS) 
+  pour lier 2 applications (2 serveurs) distincts*/
+app.use(cors());
 
 // parse application/json
 app.use(bodyParser.json());

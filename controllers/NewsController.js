@@ -82,7 +82,7 @@ exports.editOne = (req, res) => {
 
 // DELETE ONE
 exports.deleteOne = async (req, res) => {
-  console.log("delete", req.query, req.params.id);
+  // console.log("delete", req.query, req.params.id);
   const NewsId = await News.findById(req.params.id);
   console.log("NewsId DeleteOne", NewsId);
 
@@ -98,7 +98,7 @@ exports.deleteOne = async (req, res) => {
 
 // DELETE ALL
 exports.deleteMany = function (req, res, next) {
-  News.remove({}, function (err) {
+  News.deleteOne({}, function (err) {
     if (err) {
       console.log(err);
     } else {
