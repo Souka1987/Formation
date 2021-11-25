@@ -26,7 +26,6 @@ export function ArticleReducer(state = initialState, action) {
       return { ...state, newsData: action.payload };
     case Actions.ADD_NEWS_DATA:
       return { ...state, flash: action.payload };
-
       case Actions.EDIT_NEWS_DATA:
         return state.map((news) => {
           // Post par son ID
@@ -39,9 +38,9 @@ export function ArticleReducer(state = initialState, action) {
             // Retourner tous les éléments si il ne rentrent pas dans les conditions
           } else return news;
         });
-      //   case Actions.DELETE_NEWS_DATA:
-      // // Tous ceux dont l'id n'est pas egal à l'action.payload.postId
-      // return state.filter((article) => article.id !== action.payload.NewsId);
+        case Actions.DELETE_NEWS_DATA:
+      // Tous ceux dont l'id n'est pas egal à l'action.payload.NewsId
+      return state.filter((article) => article.id !== action.payload.NewsId);
     default:
       return state;
   }

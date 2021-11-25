@@ -9,9 +9,8 @@ import axios from "axios";
 import {
   GET_NEWS_DATA,
   ADD_NEWS_DATA,
-  // EDIT_NEWS_DATA,
-  DELETE_NEWS_DATA,
   EDIT_NEWS_DATA,
+  DELETE_NEWS_DATA,
 } from "./ActionTypes";
 
 /*
@@ -53,32 +52,32 @@ export const addNews = (data) => {
 };
 
 // Edit News [Method PUT router.js]
-// export const editPost = (data) => {
-//   return (dispatch) => {
-//     return axios({
-//       method: "put",
-//       url: `http://localhost:5000/news/${data.id}`,
-//       data: { ...data },
-//     })
-//       .then(() => {
-//         /* Envoyer la data et casser le tableau pour avoir 
-//         chaque éléments du tableau séparement { ..data } */
-//         dispatch({ type: EDIT_NEWS_DATA, payload: { ...data } });
-//       })
-//       .catch((err) => console.log(err));
-//   };
-// };
+export const editNews = (data) => {
+  return (dispatch) => {
+    return axios({
+      method: "put",
+      url: `http://localhost:5000/news/${data.id}`,
+      data: { ...data },
+    })
+      .then(() => {
+        /* Envoyer la data et casser le tableau pour avoir 
+        chaque éléments du tableau séparement { ..data } */
+        dispatch({ type: EDIT_NEWS_DATA, payload: { ...data } });
+      })
+      .catch((err) => console.log(err));
+  };
+};
 
 // Delete One News [Method DELETE router.js]
-export const deleteNews = (data) => {
+export const deleteNews = (article) => {
   return (dispatch) => {
     return axios({
       method: "delete",
-      url: `http://localhost:5000/news/${data.id}`,
+      url: `http://localhost:5000/news/${article.id}`,
     })
       .then((res) => {
         // On aura besion de l'id du post pour le supprimer
-        dispatch({ type: DELETE_NEWS_DATA, payload: { data } });
+        dispatch({ type: DELETE_NEWS_DATA, payload: { article } });
       })
       .catch((err) => console.log(err));
   };
