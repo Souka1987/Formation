@@ -6,7 +6,6 @@ import Article from "../components/Article";
 import { store } from "../store";
 import { useSelector } from "react-redux";
 import { addNews, getNews } from "../store/actions/ArticleActions";
-import DeleteAll from "../components/DeleteAll";
 
 const News = (props) => {
   const [author, setAuthor] = useState("");
@@ -20,9 +19,9 @@ const News = (props) => {
     e.preventDefault();
     console.log("submit:", content);
 
-    if (content.length < 140) {
-      setError(true);
-    } else {
+    // if (content.length < 140) {
+    //   setError(true);
+    // } else {
       store.dispatch(
         addNews({
           title,
@@ -32,11 +31,11 @@ const News = (props) => {
         })
       );
 
-      store.dispatch(getNews());
-      setTitle("");
-      setAuthor("");
-      setContent("");
-    }
+    store.dispatch(getNews());
+    setTitle("");
+    setAuthor("");
+    setContent("");
+    //}
   };
 
   return (
@@ -60,15 +59,14 @@ const News = (props) => {
           value={author}
         />
         <textarea
-          style={{ border: error ? "1px solid red" : "1px solid #61dafb" }}
+          // style={{ border: error ? "1px solid red" : "1px solid #61dafb" }}
           onChange={(e) => setContent(e.target.value)}
           placeholder="Contenu"
           value={content}
         ></textarea>
-        {error && <p>Veuillez écrire un minimum de 140 caractères</p>}
+        {/* {error && <p>Veuillez écrire un minimum de 140 caractères</p>} */}
         <input type="submit" value="Envoyer" />
-        <br/>
-        <DeleteAll />
+        <br />
       </form>
 
       <ul>

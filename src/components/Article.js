@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
 import DeleteArticle from "./DeleteArticle";
+import { editNews } from "../store/actions/ArticleActions";
 
 const Article = ({ article }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditContent] = useState("");
-
+  const dispatch = useDispatch();
   const dateParser = (date) => {
     let newDate = new Date(date).toLocaleDateString("fr-FR", {
       year: "numeric",
@@ -19,6 +20,8 @@ const Article = ({ article }) => {
   };
 
   const handleEdit = () => {
+    // Rechargement
+    window.location.reload();
     const data = {
       // Indiquer les datas souhaités
       title: article.title,
@@ -26,12 +29,13 @@ const Article = ({ article }) => {
       content: editedContent ? editedContent : article.content,
       date: article.date,
     };
-
-    axios.put("http://localhost:5000/news/" + article._id, data).then(() => {
-      setIsEditing(false);
-    });
+    // Transmettre les données
+    dispatch(editNews(article._id));
+    setIsEditing(false);
   };
 
+  // console.log(article._id);
+  // console.log({handleEdit});
   return (
     <div
       className="article"
@@ -59,11 +63,11 @@ const Article = ({ article }) => {
       {/* Bouttons actions */}
       <div className="btn-container">
         {isEditing ? (
-          <button onClick={handleEdit}>Valider</button>
+          <button type="submit" onClick={handleEdit}>Valider</button>
         ) : (
           <button onClick={() => setIsEditing(true)}>Edit</button>
         )}
-        <DeleteArticle key={article._id} />
+        <DeleteArticle id={article._id} />
       </div>
     </div>
   );

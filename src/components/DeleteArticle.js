@@ -1,13 +1,25 @@
-import React from "react";
-// import axios from "axios";
+/***
+ *
+ * Delete One Button
+ *
+ */
 
-const DeleteArticle = ({ articleId }) => {
+import React from "react";
+import { useDispatch } from "react-redux";
+import { deleteOneNews } from "../store/actions/ArticleActions";
+
+const DeleteArticle = ({ id }) => {
+  const dispatch = useDispatch();
   const handleDelete = () => {
-    console.log("article delete");
-    // axios.delete(`http://localhost:5000/news/${articleId}`);
+    // Rechargement
     window.location.reload();
   };
+  // Transmettre les données du STORE avec dispatch (crud)
+  dispatch(deleteOneNews(id));
 
+  console.log("DeleteArticle");
+  console.log(id);
+  // console.log("button" + id);
   return (
     <button
       onClick={() => {

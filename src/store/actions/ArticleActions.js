@@ -9,7 +9,7 @@ import axios from "axios";
 import {
   GET_NEWS_DATA,
   ADD_NEWS_DATA,
-  // EDIT_NEWS_DATA,
+  EDIT_NEWS_DATA,
   DELETE_NEWS_DATA,
 } from "./ActionTypes";
 
@@ -17,7 +17,6 @@ import {
  * Actions
  * ******* */
 
-// Get News [Method GET router.js]
 export const getNews = () => {
   console.log("getNews");
   return (dispatch) => {
@@ -25,7 +24,10 @@ export const getNews = () => {
       .get("http://localhost:5000/")
       .then((res) => {
         console.log("getNews:", res.data);
-        dispatch({ type: GET_NEWS_DATA, payload: res.data.dbNews });
+        dispatch({
+          type: GET_NEWS_DATA,
+          payload: res.data.dbNews,
+        });
       })
       .catch((err) => console.log(err));
   };
@@ -36,55 +38,65 @@ export const addNews = (data) => {
   console.log("addNews", data);
   return (dispatch) => {
     return axios
-      .post("http://localhost:5000/news", data)
+      .post("http://localhost:5000/", data)
       .then((res) => {
-        console.log("postNews", res.data);
-        dispatch({ type: ADD_NEWS_DATA, payload: res.data.message });
+        console.log("addNews", res.data);
+        dispatch({
+          type: ADD_NEWS_DATA,
+          payload: res.data.message,
+        });
       })
       .catch((err) => console.log(err));
   };
 };
 
 // Edit News [Method PUT router.js]
-// export const editNews = (id) => {
-//   console.log("editNews", id);
+export const editNews = (data) => {
+  console.log("editNews", data);
+  return (dispatch) => {
+    return axios
+      .put(`http://localhost:5000/news/${data}`)
+      .then((res) => {
+        console.log("editNews", res.data);
+        dispatch({
+          type: EDIT_NEWS_DATA,
+          payload: res.data.message,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+// Delete One News [Method DELETE router.js]
+export const deleteOneNews = (data) => {
+  console.log("deleteOneNews", data);
+  return (dispatch) => {
+    return axios
+      .delete(`http://localhost:5000/news/${data.id}`)
+      .then((res) => {
+        console.log("deleteOneNews", res.data);
+        dispatch({
+          type: DELETE_NEWS_DATA,
+          payload: res.data.message,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+// // Delete All News [Method DELETE router.js]
+// export const deleteAllNews = () => {
+//   console.log("deleteAllNews");
 //   return (dispatch) => {
 //     return axios
-//       .put(`http://localhost:5000/news/` + id)
+//       .delete("http://localhost:5000/")
 //       .then((res) => {
-//         console.log("editNews", res.data);
-//         dispatch({ type: EDIT_NEWS_DATA, payload: res.data.message });
+//         console.log("deleteNews", res.data);
+//         dispatch({
+//           type: DELETE_NEWS_DATA,
+//           payload: res.data.message,
+//         });
 //       })
 //       .catch((err) => console.log(err));
 //   };
 // };
-
-// Delete One News [Method DELETE router.js]
-export const deleteNews = ({ id }) => {
-  return (dispatch) => {
-    // console.log("article delete");
-    return axios({
-      method: "delete",
-      url: `http://localhost:5000/news/${id}`,
-    })
-      .then((res) => {
-        // On aura besion de l'id de l'article pour le supprimer
-        dispatch({ type: DELETE_NEWS_DATA, payload: { id } });
-      })
-      .catch((err) => console.log(err));
-  };
-};
-
-// Delete All News [Method DELETE router.js]
-export const deleteAllNews = (data) => {
-  console.log("deleteAllNews", data);
-  return (dispatch) => {
-    return axios
-      .delete("http://localhost:5000/", data)
-      .then((res) => {
-        console.log("deleteAllNews", res.data);
-        dispatch({ type: DELETE_NEWS_DATA });
-      })
-      .catch((err) => console.log(err));
-  };
-};
