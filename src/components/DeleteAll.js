@@ -6,15 +6,15 @@
 
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteAllNews } from "../store/actions/ArticleActions";
+import { deleteMany } from "../store/actions/ArticleActions";
 
 const DeleteAll = () => {
   const dispatch = useDispatch();
   const handleDelete = () => {
-    window.location.reload();
+    // window.location.reload();
+    // Transmettre les données du STORE avec dispatch (crud)
+    dispatch(deleteMany());
   };
-  // Transmettre les données du STORE avec dispatch (crud)
-  dispatch(deleteAllNews());
 
   return (
     <button

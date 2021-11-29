@@ -6,20 +6,16 @@
 
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteOneNews } from "../store/actions/ArticleActions";
+import { deleteOne } from "../store/actions/ArticleActions";
 
 const DeleteArticle = ({ id }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
-    // Rechargement
-    window.location.reload();
+    // Transmettre les données du STORE avec dispatch (crud)
+    dispatch(deleteOne(id));
   };
-  // Transmettre les données du STORE avec dispatch (crud)
-  dispatch(deleteOneNews(id));
 
-  console.log("DeleteArticle");
-  console.log(id);
-  // console.log("button" + id);
+  // console.log("DeleteArticle", id);
   return (
     <button
       onClick={() => {

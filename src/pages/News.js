@@ -1,37 +1,33 @@
 import React, { useState } from "react";
 import Logo from "../components/Logo";
 import Navigation from "../components/Navigation";
-// import axios from "axios";
 import Article from "../components/Article";
 import { store } from "../store";
 import { useSelector } from "react-redux";
-import { addNews, getNews } from "../store/actions/ArticleActions";
+import { create, getNews } from "../store/actions/ArticleActions";
+import DeleteAll from "../components/DeleteAll";
+
+store.dispatch(getNews());
 
 const News = (props) => {
   const [author, setAuthor] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
 
   const listNews = useSelector((state) => state.article.newsData);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit:", content);
-
-    // if (content.length < 140) {
-    //   setError(true);
-    // } else {
-      store.dispatch(
-        addNews({
-          title,
-          author,
-          content,
-          date: Date.now(),
-        })
-      );
-
-    store.dispatch(getNews());
+    // console.log("submit:", content);
+    store.dispatch(
+      create({
+        title,
+        author,
+        content,
+        date: Date.now(),
+      })
+    );
     setTitle("");
     setAuthor("");
     setContent("");
@@ -67,16 +63,18 @@ const News = (props) => {
         {/* {error && <p>Veuillez écrire un minimum de 140 caractères</p>} */}
         <input type="submit" value="Envoyer" />
         <br />
+        <DeleteAll />
       </form>
 
       <ul>
         {listNews.length > 0 &&
-          listNews
-            .sort((a, b) => b.date - a.date)
-            .map((article) => <Article key={article._id} article={article} />)}
+          listNews.map((article) => (
+            <Article key={article._id} article={article} />
+          ))}
       </ul>
     </div>
   );
 };
+// .sort((a, b) => b.date - a.date)
 
 export default News;

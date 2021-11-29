@@ -7,35 +7,34 @@ const Article = ({ article }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditContent] = useState("");
   const dispatch = useDispatch();
-  const dateParser = (date) => {
-    let newDate = new Date(date).toLocaleDateString("fr-FR", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
-    });
-    return newDate;
-  };
+  // const dateParser = (date) => {
+  //   let newDate = new Date(date).toLocaleDateString("fr-FR", {
+  //     year: "numeric",
+  //     month: "long",
+  //     day: "numeric",
+  //     hour: "numeric",
+  //     minute: "numeric",
+  //     second: "numeric",
+  //   });
+  //   return newDate;
+  // };
 
   const handleEdit = () => {
-    // Rechargement
-    window.location.reload();
-    const data = {
-      // Indiquer les datas souhaités
-      title: article.title,
-      author: article.author,
-      content: editedContent ? editedContent : article.content,
-      date: article.date,
-    };
     // Transmettre les données
-    dispatch(editNews(article._id));
+    dispatch(
+      editNews(article._id, {
+        // Indiquer les datas souhaités
+        title: article.title,
+        author: article.author,
+        content: editedContent ? editedContent : article.content,
+        date: article.date,
+      })
+    );
     setIsEditing(false);
   };
-
+  // console.log("submit");
   // console.log(article._id);
-  // console.log({handleEdit});
+  // console.log({ handleEdit });
   return (
     <div
       className="article"
@@ -45,7 +44,7 @@ const Article = ({ article }) => {
         {/* Titre */}
         <h3>{article.title}</h3>
         {/* Date */}
-        <em>Posté le {dateParser(article.date)}</em>
+        {/* <em>Posté le {dateParser(article.date)}</em> */}
       </div>
       {/* Contenu */}
       {isEditing ? (
@@ -63,7 +62,9 @@ const Article = ({ article }) => {
       {/* Bouttons actions */}
       <div className="btn-container">
         {isEditing ? (
-          <button type="submit" onClick={handleEdit}>Valider</button>
+          <button type="submit" onClick={handleEdit}>
+            Valider
+          </button>
         ) : (
           <button onClick={() => setIsEditing(true)}>Edit</button>
         )}

@@ -33,17 +33,17 @@ export const getNews = () => {
   };
 };
 
-// Add News [Method POST router.js]
-export const addNews = (data) => {
-  console.log("addNews", data);
+// create [Method POST router.js]
+export const create = (data) => {
+  console.log("create");
   return (dispatch) => {
     return axios
       .post("http://localhost:5000/", data)
       .then((res) => {
-        console.log("addNews", res.data);
+        console.log("create", res.data);
         dispatch({
           type: ADD_NEWS_DATA,
-          payload: res.data.message,
+          payload: res.data.dbNews,
         });
       })
       .catch((err) => console.log(err));
@@ -51,16 +51,16 @@ export const addNews = (data) => {
 };
 
 // Edit News [Method PUT router.js]
-export const editNews = (data) => {
-  console.log("editNews", data);
+export const editNews = (id, data) => {
+  console.log("editNews", id);
   return (dispatch) => {
     return axios
-      .put(`http://localhost:5000/news/${data}`)
+      .put(`http://localhost:5000/${id}`, data)
       .then((res) => {
         console.log("editNews", res.data);
         dispatch({
           type: EDIT_NEWS_DATA,
-          payload: res.data.message,
+          payload: res.data.dbNews,
         });
       })
       .catch((err) => console.log(err));
@@ -68,35 +68,35 @@ export const editNews = (data) => {
 };
 
 // Delete One News [Method DELETE router.js]
-export const deleteOneNews = (data) => {
-  console.log("deleteOneNews", data);
+export const deleteOne = (id) => {
+  console.log("deleteOne", id);
   return (dispatch) => {
     return axios
-      .delete(`http://localhost:5000/news/${data.id}`)
+      .delete("http://localhost:5000/" + id)
       .then((res) => {
-        console.log("deleteOneNews", res.data);
+        console.log("deleteOne", res.data);
         dispatch({
           type: DELETE_NEWS_DATA,
-          payload: res.data.message,
+          payload: res.data.dbNews,
         });
       })
       .catch((err) => console.log(err));
   };
 };
 
-// // Delete All News [Method DELETE router.js]
-// export const deleteAllNews = () => {
-//   console.log("deleteAllNews");
-//   return (dispatch) => {
-//     return axios
-//       .delete("http://localhost:5000/")
-//       .then((res) => {
-//         console.log("deleteNews", res.data);
-//         dispatch({
-//           type: DELETE_NEWS_DATA,
-//           payload: res.data.message,
-//         });
-//       })
-//       .catch((err) => console.log(err));
-//   };
-// };
+// Delete All News [Method DELETE router.js]
+export const deleteMany = () => {
+  console.log("deleteMany");
+  return (dispatch) => {
+    return axios
+      .delete("http://localhost:5000/")
+      .then((res) => {
+        console.log("deleteMany", res.data);
+        dispatch({
+          type: DELETE_NEWS_DATA,
+          payload: res.data.dbNews,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
