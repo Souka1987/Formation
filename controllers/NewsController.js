@@ -31,10 +31,10 @@ exports.getId = async (req, res) => {
 /***********/
 
 // CREATE
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
   const b = req.body;
   console.log("req.body", b);
-  if (b.title && b.content) {
+  if (b.title && b.author && b.content) {
     // On définit la construction de notre article
     const news = new News({
       ...req.body,
@@ -47,14 +47,16 @@ exports.create = (req, res) => {
       if (err) return handleError(err);
     });
 
+    await News.find();
+
     res.json({
-      message: "Item creé avec success !",
+      message: "Article creé avec success !",
       data: news,
     });
     // Sinon afficher l'erreur
   } else
     res.json({
-      message: "Error, l'item n'a pas été créé !",
+      message: "Erreur, l'article n'a pas été créé !",
     });
 };
 
@@ -62,7 +64,7 @@ exports.create = (req, res) => {
 
 // PUT
 exports.editOne = (req, res) => {
-  console.log("put", req.query, req.body);
+  console.log("put", req.params, req.body);
   // Chercher l'article par son Id pour l'éditer
   News.findByIdAndUpdate(
     req.params.id,
@@ -72,7 +74,7 @@ exports.editOne = (req, res) => {
     (err, data) => {
       if (err) throw err;
       res.json({
-        message: "Article créé avec succès !",
+        message: "Article MODIFIE avec succès !",
       });
     }
   );
@@ -82,15 +84,20 @@ exports.editOne = (req, res) => {
 
 // DELETE ONE
 exports.deleteOne = async (req, res) => {
-  // console.log("delete", req.query, req.params.id);
+  console.log("deleteOne", req.query, req.params.id);
+  // Recupération des données sélectionnées dans la DB
   const NewsId = await News.findById(req.params.id);
-  console.log("NewsId DeleteOne", NewsId);
 
-  News.findByIdAndDelete(req.params.id, (err, data) => {
-    if (err) throw err;
-    res.json({
-      message: "l'Item à été supprimer avec success !",
-    });
+  // Suppression de l'id de la DB
+  await News.findByIdAndDelete(NewsId);
+
+  // Recupération des données dans la DB
+  const dbNews = await News.find();
+
+  // Resultat affiché sur Postman lors de l'aboutissement de la requete
+  res.json({
+    message: "L'article a été supprimé avec succès !",
+    dbNews,
   });
 };
 
@@ -98,7 +105,7 @@ exports.deleteOne = async (req, res) => {
 
 // DELETE ALL
 exports.deleteMany = function (req, res, next) {
-  News.deleteOne({}, function (err) {
+  News.remove({}, function (err) {
     if (err) {
       console.log(err);
     } else {

@@ -25,13 +25,13 @@ router
   // Récupérer tous les articles
   .get("/", NewsController.getAll)
   //   Récupérer un article unique ID (chemin spécifié)
-  .get("/news", NewsController.getId)
+  .get("/:id", NewsController.getId)
   //   Créer un nouvel article
-  .post("/news", NewsController.create)
+  .post("/", NewsController.create)
   //   Editer/Modifier
-  .put("/news/:id", NewsController.editOne)
+  .put("/:id", NewsController.editOne)
   // Supprimer un article unique
-  .delete("/news/:id", NewsController.deleteOne)
+  .delete("/:id", NewsController.deleteOne)
   // Supprimer TOUS les articles
   .delete("/", NewsController.deleteMany)
 
@@ -53,7 +53,7 @@ router
   //   Récupérer un article unique ID (chemin spécifié)
   .get("/countries", CountriesController.getId)
   //   Créer un nouvel article
-  .post("/countries", CountriesController.create)
+  .post("/", CountriesController.create)
   //   Editer/Modifier
   .put("/countries/:id", CountriesController.editOne)
   // Supprimer un article unique
