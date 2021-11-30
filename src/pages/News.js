@@ -67,8 +67,8 @@ const News = (props) => {
       </form>
 
       <ul>
-        {listNews.length > 0 &&
-          listNews.map((article) => (
+        {(listNews.length > 0) && listNews
+          .map((article) => (
             <Article key={article._id} article={article} />
           ))}
       </ul>
