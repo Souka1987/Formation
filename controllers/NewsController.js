@@ -32,32 +32,14 @@ exports.getId = async (req, res) => {
 
 // CREATE
 exports.create = async (req, res) => {
-  const b = req.body;
-  console.log("req.body", b);
-  if (b.title && b.author && b.content) {
-    // On définit la construction de notre article
-    const news = new News({
-      ...req.body,
-      // title: b.title,
-      // content: b.content,
-    });
+  console.log("dbNews", req.body);
+  console.log(req.file);
 
-    // Et on sauvegarde nos modifications
-    news.save((err) => {
-      if (err) return handleError(err);
-    });
-
-    await News.find();
-
-    res.json({
-      message: "Article creé avec success !",
-      data: news,
-    });
-    // Sinon afficher l'erreur
-  } else
-    res.json({
-      message: "Erreur, l'article n'a pas été créé !",
-    });
+  News.create({ ...req.body }, async (err) => {
+    if (err) console.log(err);
+    const dbNews = await News.find({});
+    res.json({ dbNews, message: "l'article a bien été créé" });
+  });
 };
 
 /***********/
@@ -105,11 +87,19 @@ exports.deleteOne = async (req, res) => {
 
 // DELETE ALL
 exports.deleteMany = function (req, res, next) {
-  News.remove({}, function (err) {
+  News.remove({}, async function (err) {
+    console.log("deleteMany");
     if (err) {
       console.log(err);
     } else {
-      res.end("Tous a été éffacé !");
+      // Recupération des données dans la DB
+      const dbNews = await News.find();
+
+      // Resultat affiché sur Postman lors de l'aboutissement de la requete
+      res.json({
+        message: "Tous les articles ont été supprimés",
+        dbNews,
+      });
     }
   });
 };
