@@ -1,12 +1,11 @@
-<h1 align="center">Hi 👋</h1>
+<h1 align="center">Hi 👋, I'm Souka</h1>
+<h3 align="center">A passionate frontend developer from France</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=souka1987&label=Profile%20views&color=0e75b6&style=flat" alt="souka1987" /> </p>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=souka1987" alt="souka1987" /></a> </p>
-
 - 🌱 I’m currently learning **How to create a 3-tier architecture**
 
-- 💬 About **This repository contains my work from the course called Concepteur Développeur d'Applications.**
+- 💬 Ask me about **This repository contains my work from the course called Concepteur Développeur d'Applications.**
 
 - 📫 How to reach me **soukainataattoumani@yahoo.fr**
 
