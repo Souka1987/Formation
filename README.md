@@ -4,9 +4,9 @@
 
 - 🌱 I’m currently learning **How to create a 3-tier architecture**
 
-- 💬 About **This repository contains my work from the course called Concepteur Développeur d'Applications.**
+- 💬 About : **This repository contains my work from the course called Concepteur Développeur d'Applications.**
 
-- 📫 How to reach me **soukainataattoumani@yahoo.fr**
+- 📫 How to reach me : **soukainataattoumani@yahoo.fr**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
