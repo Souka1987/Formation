@@ -5,11 +5,6 @@
   </a>
 </p>
 
-<<<<<<< HEAD
-=======
-Mettre une application buildée en production avec liaison du front-end et du back-end.
- 
->>>>>>> 86f713279001a1d11d25a2a49896a27ff4043375
 [![Souka1987 - https://github.com/Souka1987/Formation_CDA/](https://img.shields.io/static/v1?label=Souka1987&message=https%3A%2F%2Fgithub.com%2FSouka1987%2FFormation_CDA%2F&color=purple&logo=github)](https://github.com/Souka1987/https://github.com/Souka1987/Formation_CDA/ "Go to GitHub repo")
 [![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/ "Go to Linux homepage")
 [![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
@@ -19,12 +14,9 @@ Mettre une application buildée en production avec liaison du front-end et du ba
 [![dependency - mongoose](https://img.shields.io/badge/dependency-mongoose-red)](https://www.npmjs.com/package/mongoose)
 [![Made with Node.js](https://img.shields.io/badge/Node.js->=14.18.1-green?logo=node.js&logoColor=white)](https://nodejs.org "Go to Node.js homepage")
 ----------------------------------------
-<<<<<<< HEAD
 
 
 > Mettre une application en production avec build plus liaison avec front-end et back-end
-=======
->>>>>>> 86f713279001a1d11d25a2a49896a27ff4043375
 
 ## Install
 
@@ -42,7 +34,6 @@ npx create-react-app my-app and sudo apt-get install nodejs npm
 
 ## Show your support
 
-<<<<<<< HEAD
 Give a ⭐️ if this project helped you!
 
 ***
@@ -52,12 +43,3 @@ _This README was generated with ❤️ by [readme-md-generator](https://github.c
 ## License
 
 Released under [MIT](/LICENSE) by [@Souka1987](https://github.com/Souka1987).
-=======
-```
-yarn add react-router-dom
-```
-
-## License
-
-Released under [MIT](/LICENSE) by [@Souka1987](https://github.com/Souka1987).
->>>>>>> 86f713279001a1d11d25a2a49896a27ff4043375
