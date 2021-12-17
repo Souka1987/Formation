@@ -1,7 +1,6 @@
-<h1 align="center">Hi 👋, I'm Souka</h1>
-<h3 align="center">A passionate frontend developer from France</h3>
+<h1 align="center">Hi 👋</h1>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=souka1987&label=Profile%20views&color=0e75b6&style=flat" alt="souka1987" /> </p>
+<p align="center"> <img src="https://komarev.com/ghpvc/?username=souka1987&label=Profile%20views&color=0e75b6&style=flat" alt="souka1987" /> </p>
 
 - 🌱 I’m currently learning **How to create a 3-tier architecture**
 
