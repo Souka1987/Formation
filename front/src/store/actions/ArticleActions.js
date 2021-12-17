@@ -21,7 +21,7 @@ export const getNews = () => {
   console.log("getNews");
   return (dispatch) => {
     return axios
-      .get(process.env.REACT_APP_API+"api")
+      .get(process.env.REACT_APP_API+"/api")
       .then((res) => {
         console.log("getNews:", res.data);
         dispatch({
@@ -38,7 +38,7 @@ export const create = (data) => {
   console.log("create");
   return (dispatch) => {
     return axios
-      .post(process.env.REACT_APP_API+"api", data)
+      .post(process.env.REACT_APP_API+"/api", data)
       .then((res) => {
         console.log("create", res.data);
         dispatch({
@@ -55,7 +55,7 @@ export const editNews = (id, data) => {
   console.log("editNews", id);
   return (dispatch) => {
     return axios
-      .put(process.env.REACT_APP_API+`api${id}`, data)
+      .put(process.env.REACT_APP_API+`/api${id}`, data)
       .then((res) => {
         console.log("editNews", res.data);
         dispatch({
@@ -72,7 +72,7 @@ export const deleteOne = (id) => {
   console.log("deleteOne", id);
   return (dispatch) => {
     return axios
-      .delete(process.env.REACT_APP_API+"api" + id)
+      .delete(process.env.REACT_APP_API+"/api" + id)
       .then((res) => {
         console.log("deleteOne", res.data);
         dispatch({
@@ -89,7 +89,7 @@ export const deleteMany = () => {
   console.log("deleteMany");
   return (dispatch) => {
     return axios
-      .delete(process.env.REACT_APP_API+"api")
+      .delete(process.env.REACT_APP_API+"/api")
       .then((res) => {
         console.log("deleteMany", res.data);
         dispatch({
