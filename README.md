@@ -3,7 +3,8 @@
 Mettre une application buildée en production avec liaison du front-end et du back-end.
 
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
-[![NPM](https://nodei.co/npm/<package>.png)](https://nodei.co/npm/<package>/)
+[![Node version](https://img.shields.io/node/v/[EXPRESS].svg?style=flat)](http://nodejs.org/download/)
+
 
 ## Installation back-end
 
