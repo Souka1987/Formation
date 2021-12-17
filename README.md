@@ -4,7 +4,7 @@
 [![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/ "Go to Linux homepage")
 [![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
 [![dependency - webpack](https://img.shields.io/badge/dependency-webpack-blue)](https://www.npmjs.com/package/webpack)
-[![dependency - babel](https://img.shields.io/badge/dependency-mongoose-yellow)](https://www.npmjs.com/package/@babel/core)
+[![dependency - babel](https://img.shields.io/badge/dependency-babel-yellow)](https://www.npmjs.com/package/@babel/core)
 
 ----------------------------------------
 
