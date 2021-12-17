@@ -3,8 +3,8 @@
 Mettre une application buildée en production avec liaison du front-end et du back-end.
 
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
-[[Package Name](![APM](https://img.shields.io/apm/l/react))](https://github.com/Souka1987/Formation_CDA/tree/react-app)
-
+[![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+----------------------------------------
 
 > Installation back-end
 
