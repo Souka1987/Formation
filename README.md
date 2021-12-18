@@ -9,7 +9,7 @@
 ----------------------------------------
 
 
-> Découvrir React et **Json Server
+> Découvrir React et Json Server
 
 ## Installation
 
