@@ -4,10 +4,9 @@
 [![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/ "Go to Linux homepage")
 [![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
 [![dependency - react-router-dom](https://img.shields.io/badge/dependency-react--router--dom-blue)](https://www.npmjs.com/package/react-router-dom)
-[![dependency - electron](https://img.shields.io/badge/dependency-electron-dark-blue)](https://www.npmjs.com/package/electron)
-
+![npm](https://img.shields.io/npm/v/yarn?color=blue&label=yarn&logo=yarn&logoColor=blue&style=social)
+![npm](https://img.shields.io/npm/v/electron?color=blue&label=electron&logo=electron&logoColor=blue&style=social)
 ----------------------------------------
-
 
 > Builder une application avec Electron (https://www.electronjs.org/)
 
@@ -15,17 +14,16 @@
 
 ```
 npm i -D electron@latest
-  
 ```
 
 ### Architecture 
 
-Créer un dossier electron.js dans le dossier /public
+=> Créer un dossier electron.js dans le dossier /public
 
 -----------------------------------------
 
 ## Usage
-I use linux OS and yarn
+I use Linux OS and yarn
 
 ```
 npm run e:dev or yarn e:dev
