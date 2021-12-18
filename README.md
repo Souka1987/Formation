@@ -1,6 +1,6 @@
 <h1 align="center">Hi 👋</h1>
 
-<p align="center"> <img src="https://komarev.com/ghpvc/?username=souka1987&label=Profile%20views&color=0e75b6&style=flat" alt="souka1987" /> </p>
+<p align="center"> <img src="https://komarev.com/ghpvc/?username=souka1987&label=Profile%20views&color=ff1493&style=plastic" alt="souka1987" /> </p>
 
 - 🌱 I’m currently learning **How to create a 3-tier architecture**
 
