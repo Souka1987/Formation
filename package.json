@@ -1,9 +1,9 @@
 {
   "name": "porfolio-quasar",
   "version": "0.0.1",
-  "description": "Tuto Porfolio Quasar App Js",
-  "productName": "Porfolio Quasar App Tuto",
-  "author": "xdrkush <drkushikush@gmail.com>",
+  "description": "Porfolio Quasar App Js",
+  "productName": "Porfolio Quasar App",
+  "author": "Soukainata Attoumani",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
