@@ -6,11 +6,10 @@
 [![dependency - react-router-dom](https://img.shields.io/badge/dependency-react--router--dom-blue)](https://www.npmjs.com/package/react-router-dom)
 [![dependency - redux](https://img.shields.io/badge/dependency-redux-blue)](https://www.npmjs.com/package/redux)
 [![dependency - react](https://img.shields.io/badge/dependency-react-blue)](https://www.npmjs.com/package/react)
-[![dependency - json-server](https://img.shields.io/badge/dependency-json-server-blue)](https://www.npmjs.com/package/json-server)
 ----------------------------------------
 
 
-> Découvrir React et Json Server
+> Découvrir React et **Json Server
 
 ## Installation
 
